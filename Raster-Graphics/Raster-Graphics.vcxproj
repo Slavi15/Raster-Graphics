@@ -127,7 +127,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BitSet\BitSet.cpp" />
+    <ClCompile Include="FilePath\FilePath.cpp" />
+    <ClCompile Include="Interface\IMonochrome.cpp" />
+    <ClCompile Include="Interface\IGrayScale.cpp" />
+    <ClCompile Include="Image\Image.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Image\PBMImage\PBMImage.cpp" />
+    <ClCompile Include="Image\PGMImage\PGMImage.cpp" />
+    <ClCompile Include="Image\PPMImage\PPMImage.cpp" />
+    <ClCompile Include="Image\PBMImage\PBM1Image.cpp" />
+    <ClCompile Include="Image\PBMImage\PBM4Image.cpp" />
+    <ClCompile Include="Image\PGMImage\PGM2Image.cpp" />
+    <ClCompile Include="Image\PGMImage\PGM5Image.cpp" />
+    <ClCompile Include="Image\PPMImage\PPM3Image.cpp" />
+    <ClCompile Include="Image\PPMImage\PPM6Image.cpp" />
+    <ClCompile Include="String\String.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BitSet\BitSet.h" />
+    <ClInclude Include="FilePath\FilePath.h" />
+    <ClInclude Include="Interface\IMonochrome.h" />
+    <ClInclude Include="Interface\IGrayScale.h" />
+    <ClInclude Include="Image\Image.h" />
+    <ClInclude Include="Image\PBMImage\PBMImage.h" />
+    <ClInclude Include="Image\PGMImage\PGMImage.h" />
+    <ClInclude Include="Image\PPMImage\PPMImage.h" />
+    <ClInclude Include="Image\PBMImage\PBM1Image.h" />
+    <ClInclude Include="Image\PBMImage\PBM4Image.h" />
+    <ClInclude Include="Image\PGMImage\PGM2Image.h" />
+    <ClInclude Include="Image\PGMImage\PGM5Image.h" />
+    <ClInclude Include="Pixel\Pixel.hpp" />
+    <ClInclude Include="Image\PPMImage\PPM3Image.h" />
+    <ClInclude Include="Image\PPMImage\PPM6Image.h" />
+    <ClInclude Include="String\String.h" />
+    <ClInclude Include="Vector\Vector.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
