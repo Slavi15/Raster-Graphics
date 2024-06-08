@@ -25,6 +25,10 @@ public:
 
 	bool isGrayScale() const;
 
+	void RGBToGrayScale();
+	void RGBToMonochrome(const T& colorValue);
+	void RGBToNegative(const T& colorValue);
+
 	template <typename T>
 	friend std::istream& operator>>(std::istream& is, Pixel<T>& pixel);
 
@@ -83,6 +87,32 @@ template<typename T>
 bool Pixel<T>::isGrayScale() const
 {
 	return getR() == getG() && getG() == getB();
+}
+
+template<typename T>
+void Pixel<T>::RGBToGrayScale()
+{
+	T grayscale = static_cast<T>(0.3 * getR() + 0.59 * getG() + 0.11 * getB());
+
+	setR(grayscale);
+	setG(grayscale);
+	setB(grayscale);
+}
+
+template<typename T>
+void Pixel<T>::RGBToMonochrome(const T& colorValue)
+{
+	setR(colorValue);
+	setG(colorValue);
+	setB(colorValue);
+}
+
+template<typename T>
+void Pixel<T>::RGBToNegative(const T& colorValue)
+{
+	setR(colorValue - getR());
+	setG(colorValue - getG());
+	setB(colorValue - getB());
 }
 
 template <typename T>
