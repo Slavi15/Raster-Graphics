@@ -1,12 +1,13 @@
 #pragma once
 
-#include "../../Interface/IGrayScale.h"
 #include "../../Interface/IMonochrome.h"
-
 #include "../../Vector/Vector.hpp"
 
-class PGMImage : public IGrayScale, public IMonochrome
+class PGMImage : public IMonochrome
 {
+protected:
+	static constexpr uint16_t minimalPGMColor = 0;
+
 public:
 	PGMImage(const String& fileName);
 };

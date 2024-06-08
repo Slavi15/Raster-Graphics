@@ -12,6 +12,7 @@ class Image
 {
 protected:
 	String fileName;
+	uint8_t magicNumber = 0;
 	uint16_t width = 0;
 	uint16_t height = 0;
 	uint16_t maxNumber = 0;

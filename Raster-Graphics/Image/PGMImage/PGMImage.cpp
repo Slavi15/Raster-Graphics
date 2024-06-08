@@ -1,3 +1,3 @@
 #include "PGMImage.h"
 
-PGMImage::PGMImage(const String& fileName) : IGrayScale(fileName), IMonochrome(fileName) {}
+PGMImage::PGMImage(const String& fileName) : IMonochrome(fileName), Image(fileName) {}

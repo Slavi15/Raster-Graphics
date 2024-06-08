@@ -49,9 +49,19 @@ void PPM3Image::applyGrayscale()
 
 }
 
+bool PPM3Image::isGrayScale() const
+{
+	return false;
+}
+
 void PPM3Image::applyMonochrome()
 {
 
+}
+
+bool PPM3Image::isMonochrome() const
+{
+	return false;
 }
 
 void PPM3Image::applyNegative()

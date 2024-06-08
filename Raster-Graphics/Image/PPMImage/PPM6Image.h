@@ -14,7 +14,11 @@ public:
 	void save(const String& fileName) const override;
 
 	void applyGrayscale() override;
+	bool isGrayScale() const override;
+
 	void applyMonochrome() override;
+	bool isMonochrome() const override;
+
 	void applyNegative() override;
 
 	void rotateLeft() override;

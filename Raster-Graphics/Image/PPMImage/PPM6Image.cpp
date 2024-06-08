@@ -42,9 +42,19 @@ void PPM6Image::applyGrayscale()
 
 }
 
+bool PPM6Image::isGrayScale() const
+{
+	return false;
+}
+
 void PPM6Image::applyMonochrome()
 {
 
+}
+
+bool PPM6Image::isMonochrome() const
+{
+	return false;
 }
 
 void PPM6Image::applyNegative()
