@@ -39,37 +39,104 @@ void PPM6Image::save(const String& fileName) const
 
 void PPM6Image::applyGrayscale()
 {
+	if (isGrayScale())
+		throw std::logic_error("PPM6 Image: Image is already grayscale!");
 
+	for (size_t i = 0; i < this->imageData.getSize(); i++)
+	{
+		if (!this->imageData[i].isGrayScale())
+		{
+			this->imageData[i].RGBToGrayScale();
+		}
+	}
 }
 
 bool PPM6Image::isGrayScale() const
 {
-	return false;
+	for (size_t i = 0; i < this->imageData.getSize(); i++)
+	{
+		if (!this->imageData[i].isGrayScale())
+		{
+			return false;
+		}
+	}
+
+	return true;
 }
 
 void PPM6Image::applyMonochrome()
 {
+	if (isMonochrome())
+		throw std::logic_error("PPM6 Image: Image is already monochrome!");
 
+	for (size_t i = 0; i < this->imageData.getSize(); i++)
+	{
+		this->imageData[i].RGBToGrayScale();
+
+		if (this->imageData[i].getR() > getMaxNumber() / 2)
+		{
+			this->imageData[i].RGBToMonochrome(getMaxNumber());
+		}
+		else
+		{
+			this->imageData[i].RGBToMonochrome(minimalPPMColor);
+		}
+	}
 }
 
 bool PPM6Image::isMonochrome() const
 {
-	return false;
+	for (size_t i = 0; i < this->imageData.getSize(); i++)
+	{
+		bool grayScaleCheck = this->imageData[i].isGrayScale();
+
+		if (!grayScaleCheck || (grayScaleCheck && (this->imageData[i].getR() != getMaxNumber() && this->imageData[i].getR() != minimalPPMColor)))
+		{
+			return false;
+		}
+	}
+
+	return true;
 }
 
 void PPM6Image::applyNegative()
 {
-
+	for (size_t i = 0; i < this->imageData.getSize(); i++)
+	{
+		this->imageData[i].RGBToNegative(getMaxNumber());
+	}
 }
 
 void PPM6Image::rotateLeft()
 {
+	Vector<Pixel<uint8_t>> newImageData(this->imageData.getSize());
 
+	for (size_t i = 0; i < getHeight(); i++)
+	{
+		for (size_t j = 0; j < getWidth(); j++)
+		{
+			newImageData[(getWidth() - j - 1) * getHeight() + i] = this->imageData[i * getWidth() + j];
+		}
+	}
+
+	std::swap(this->width, this->height);
+	this->imageData = newImageData;
 }
 
 void PPM6Image::rotateRight()
 {
+	Vector<Pixel<uint8_t>> newImageData(this->imageData.getSize());
 
+	for (size_t i = 0; i < getHeight(); i++)
+	{
+		for (size_t j = 0; j < getWidth(); j++)
+		{
+			newImageData[(getHeight() - i - 1) + getHeight() * j] = this->imageData[i * getWidth() + j];
+		}
+	}
+
+	std::swap(this->width, this->height);
+	this->imageData = newImageData;
 }
 
 Image* PPM6Image::clone() const

@@ -8,6 +8,9 @@
 
 class PPMImage : public IGrayScale, public IMonochrome
 {
+protected:
+	static constexpr uint16_t minimalPPMColor = 0;
+
 public:
 	PPMImage(const String& fileName);
 };

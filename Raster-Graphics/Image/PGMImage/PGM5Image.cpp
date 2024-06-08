@@ -44,7 +44,7 @@ void PGM5Image::applyMonochrome()
 
 	for (size_t i = 0; i < this->imageData.getSize(); i++)
 	{
-		if (this->imageData[i] >= getMaxNumber() / 2)
+		if (this->imageData[i] > getMaxNumber() / 2)
 		{
 			this->imageData[i] = getMaxNumber();
 		}
