@@ -8,6 +8,7 @@ public:
 	IGrayScale(const String& fileName);
 
 	virtual void applyGrayscale() = 0;
+	virtual bool isGrayScale() const = 0;
 
 	virtual ~IGrayScale() noexcept = default;
 };
