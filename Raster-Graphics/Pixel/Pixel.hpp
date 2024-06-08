@@ -23,6 +23,8 @@ public:
 	void setG(const T& G);
 	void setB(const T& B);
 
+	bool isGrayScale() const;
+
 	template <typename T>
 	friend std::istream& operator>>(std::istream& is, Pixel<T>& pixel);
 
@@ -75,6 +77,12 @@ template <typename T>
 void Pixel<T>::setB(const T& B)
 {
 	this->B = B;
+}
+
+template<typename T>
+bool Pixel<T>::isGrayScale() const
+{
+	return getR() == getG() && getG() == getB();
 }
 
 template <typename T>
