@@ -1,22 +1,30 @@
 #include <iostream>
 
-//#include "Image/Image.h"
-#include "Image/PBMImage/PBM1Image.h"
-#include "Image/PBMImage/PBM4Image.h"
+#include "ImageEditor/ImageEditor.h"
 
 int main()
 {
-	PBM4Image image("Files/sample_hd.pbm");
+	ImageEditor editor;
+	editor.runImageEditor();
 
-	Image* ptr = &image;
+	//PPM6Image image("Files/sample_640x426.ppm");
 
-	ptr->load();
+	//Image* ptr = &image;
+
+	//ptr->load();
+
+	////ptr->rotateLeft();
+
+	////dynamic_cast<IMonochrome*>(ptr)->applyMonochrome();
 
 	//ptr->applyNegative();
+	//ptr->applyNegative();
 
-	ptr->rotateLeft();
+	////ptr->rotateLeft();
 
-	ptr->save("Files/hdtest.pbm");
+	////ptr->rotateRight();
+
+	//ptr->saveAs("Files/sample_640x426Neg.ppm");
 
 	return 0;
 }
