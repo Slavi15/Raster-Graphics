@@ -9,8 +9,10 @@ void PBM4Image::load()
 	if (!ifs.is_open())
 		throw std::runtime_error("PBM4 Image: Could not open file!");
 
-	ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	ifs >> this->width >> this->height;
+	/*ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	ifs >> this->width >> this->height;*/
+	ifs.ignore();
+	ifs >> this->magicNumber >> this->width >> this->height >> this->maxNumber;
 
 	size_t imageSize = getWidth() * getHeight();
 
@@ -20,7 +22,12 @@ void PBM4Image::load()
 	ifs.close();
 }
 
-void PBM4Image::save(const String& fileName) const
+void PBM4Image::save() const
+{
+	saveAs(this->fileName);
+}
+
+void PBM4Image::saveAs(const String& fileName) const
 {
 	std::ofstream ofs(fileName.c_str(), std::ios::out | std::ios::binary);
 

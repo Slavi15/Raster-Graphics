@@ -9,8 +9,8 @@ void PPM3Image::load()
 	if (!ifs.is_open())
 		throw std::runtime_error("PPM3 Image: Could not open file!");
 
-	ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	ifs >> this->width >> this->height >> this->maxNumber;
+	ifs.ignore();
+	ifs >> this->magicNumber >> this->width >> this->height >> this->maxNumber;
 
 	this->imageData = Vector<Pixel<uint16_t>>(getWidth() * getHeight());
 
@@ -25,7 +25,17 @@ void PPM3Image::load()
 	ifs.close();
 }
 
-void PPM3Image::save(const String& fileName) const
+void PPM3Image::reset()
+{
+	this->imageData.clear();
+}
+
+void PPM3Image::save() const
+{
+	saveAs(this->fileName);
+}
+
+void PPM3Image::saveAs(const String& fileName) const
 {
 	std::ofstream ofs(fileName.c_str(), std::ios::out);
 

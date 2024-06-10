@@ -3,7 +3,7 @@
 #include "../../Interface/IGrayScale.h"
 #include "../../Interface/IMonochrome.h"
 
-#include "../../Vector/Vector.hpp"
+#include "../../DataStructures/Vector.hpp"
 #include "../../Pixel/Pixel.hpp"
 
 class PPMImage : public IGrayScale, public IMonochrome

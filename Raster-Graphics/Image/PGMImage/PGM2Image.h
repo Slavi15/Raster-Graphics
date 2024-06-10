@@ -11,7 +11,10 @@ public:
 	PGM2Image(const String& fileName);
 
 	void load() override;
-	void save(const String& fileName) const override;
+	void reset() override;
+
+	void save() const override;
+	void saveAs(const String& fileName) const override;
 
 	void applyMonochrome() override;
 	bool isMonochrome() const override;

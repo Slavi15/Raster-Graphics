@@ -26,7 +26,17 @@ void PGM2Image::load()
 	ifs.close();
 }
 
-void PGM2Image::save(const String& fileName) const
+void PGM2Image::reset()
+{
+	this->imageData.clear();
+}
+
+void PGM2Image::save() const
+{
+	saveAs(this->fileName);
+}
+
+void PGM2Image::saveAs(const String& fileName) const
 {
 	std::ofstream ofs(fileName.c_str(), std::ios::out);
 

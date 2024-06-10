@@ -9,8 +9,10 @@ void PBM1Image::load()
 	if (!ifs.is_open())
 		throw std::runtime_error("PBM1 Image: Could not open file!");
 
-	ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	ifs >> this->width >> this->height;
+	/*ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	ifs >> this->width >> this->height;*/
+	ifs.ignore();
+	ifs >> this->magicNumber >> this->width >> this->height >> this->maxNumber;
 
 	this->imageData = BitSet(getWidth() * getHeight());
 
@@ -29,7 +31,12 @@ void PBM1Image::load()
 	ifs.close();
 }
 
-void PBM1Image::save(const String& fileName) const
+void PBM1Image::save() const
+{
+	saveAs(this->fileName);
+}
+
+void PBM1Image::saveAs(const String& fileName) const
 {
 	std::ofstream ofs(fileName.c_str(), std::ios::out);
 

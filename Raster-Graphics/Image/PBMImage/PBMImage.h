@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Image.h"
-#include "../../BitSet/BitSet.h"
+#include "../../DataStructures/BitSet.h"
 
 class PBMImage : public Image
 {
@@ -10,6 +10,8 @@ protected:
 
 public:
 	PBMImage(const String& fileName);
+
+	void reset() override;
 
 	void applyNegative() override;
 

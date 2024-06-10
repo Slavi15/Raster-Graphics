@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../../Interface/IMonochrome.h"
-#include "../../Vector/Vector.hpp"
+#include "../../DataStructures/Vector.hpp"
 
 class PGMImage : public IMonochrome
 {

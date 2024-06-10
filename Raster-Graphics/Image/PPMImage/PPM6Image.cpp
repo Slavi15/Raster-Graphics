@@ -9,8 +9,8 @@ void PPM6Image::load()
 	if (!ifs.is_open())
 		throw std::runtime_error("PPM6 Image: Could not open file!");
 
-	ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	ifs >> this->width >> this->height >> this->maxNumber;
+	ifs.ignore();
+	ifs >> this->magicNumber >> this->width >> this->height >> this->maxNumber;
 
 	size_t imageSize = getImageSize(ifs);
 	size_t numPixels = (imageSize % sizeof(Pixel<uint8_t>) == 0) ? imageSize / sizeof(Pixel<uint8_t>) : (imageSize / sizeof(Pixel<uint8_t>)) + 1;
@@ -21,7 +21,17 @@ void PPM6Image::load()
 	ifs.close();
 }
 
-void PPM6Image::save(const String& fileName) const
+void PPM6Image::reset()
+{
+	this->imageData.clear();
+}
+
+void PPM6Image::save() const
+{
+	saveAs(this->fileName);
+}
+
+void PPM6Image::saveAs(const String& fileName) const
 {
 	std::ofstream ofs(fileName.c_str(), std::ios::out | std::ios::binary);
 

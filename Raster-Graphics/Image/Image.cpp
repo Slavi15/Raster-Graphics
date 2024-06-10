@@ -2,6 +2,16 @@
 
 Image::Image(const String& fileName) : fileName(fileName) {}
 
+const char* Image::getFileName() const
+{
+    return fileName.c_str();
+}
+
+uint8_t Image::getMagicNumber() const
+{
+    return this->magicNumber;
+}
+
 size_t Image::getWidth() const
 {
     return this->width;

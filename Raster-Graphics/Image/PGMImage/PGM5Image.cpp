@@ -21,7 +21,17 @@ void PGM5Image::load()
 	ifs.close();
 }
 
-void PGM5Image::save(const String& fileName) const
+void PGM5Image::reset()
+{
+	this->imageData.clear();
+}
+
+void PGM5Image::save() const
+{
+	saveAs(this->fileName);
+}
+
+void PGM5Image::saveAs(const String& fileName) const
 {
 	std::ofstream ofs(fileName.c_str(), std::ios::out | std::ios::binary);
 
