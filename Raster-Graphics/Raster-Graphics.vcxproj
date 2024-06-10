@@ -127,8 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BitSet\BitSet.cpp" />
+    <ClCompile Include="CommandFactory\CommandFactory.cpp" />
+    <ClCompile Include="DataStructures\BitSet.cpp" />
+    <ClCompile Include="Command\Command.cpp" />
+    <ClCompile Include="CommandFactory\FactoryOfFactories.cpp" />
     <ClCompile Include="FilePath\FilePath.cpp" />
+    <ClCompile Include="Command\GrayScaleCommand\GrayScaleCommand.cpp" />
+    <ClCompile Include="CommandFactory\GrayScaleFactory\GrayScaleFactory.cpp" />
+    <ClCompile Include="ImageEditor\ImageEditor.cpp" />
+    <ClCompile Include="ImageFactory\ImageFactory.cpp" />
     <ClCompile Include="Interface\IMonochrome.cpp" />
     <ClCompile Include="Interface\IGrayScale.cpp" />
     <ClCompile Include="Image\Image.cpp" />
@@ -142,11 +149,28 @@
     <ClCompile Include="Image\PGMImage\PGM5Image.cpp" />
     <ClCompile Include="Image\PPMImage\PPM3Image.cpp" />
     <ClCompile Include="Image\PPMImage\PPM6Image.cpp" />
+    <ClCompile Include="Command\MonochromeCommand\MonochromeCommand.cpp" />
+    <ClCompile Include="Command\RotateLeftCommand\RotateLeftCommand.cpp" />
+    <ClCompile Include="Command\RotateRightCommand\RotateRightCommand.cpp" />
+    <ClCompile Include="Command\NegativeCommand\NegativeCommand.cpp" />
+    <ClCompile Include="CommandFactory\MonochromeFactory\MonochromeFactory.cpp" />
+    <ClCompile Include="CommandFactory\NegativeFactory\NegativeFactory.cpp" />
+    <ClCompile Include="CommandFactory\RotateLeftFactory\RotateLeftFactory.cpp" />
+    <ClCompile Include="CommandFactory\RotateRightFactory\RotateRightFactory.cpp" />
+    <ClCompile Include="Session\SessionManager.cpp" />
+    <ClCompile Include="Session\Session.cpp" />
     <ClCompile Include="String\String.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BitSet\BitSet.h" />
+    <ClInclude Include="CommandFactory\CommandFactory.h" />
+    <ClInclude Include="DataStructures\BitSet.h" />
+    <ClInclude Include="Command\Command.h" />
+    <ClInclude Include="CommandFactory\FactoryOfFactories.h" />
     <ClInclude Include="FilePath\FilePath.h" />
+    <ClInclude Include="Command\GrayScaleCommand\GrayScaleCommand.h" />
+    <ClInclude Include="CommandFactory\GrayScaleFactory\GrayScaleFactory.h" />
+    <ClInclude Include="ImageEditor\ImageEditor.h" />
+    <ClInclude Include="ImageFactory\ImageFactory.h" />
     <ClInclude Include="Interface\IMonochrome.h" />
     <ClInclude Include="Interface\IGrayScale.h" />
     <ClInclude Include="Image\Image.h" />
@@ -157,11 +181,22 @@
     <ClInclude Include="Image\PBMImage\PBM4Image.h" />
     <ClInclude Include="Image\PGMImage\PGM2Image.h" />
     <ClInclude Include="Image\PGMImage\PGM5Image.h" />
+    <ClInclude Include="Command\MonochromeCommand\MonochromeCommand.h" />
+    <ClInclude Include="Command\NegativeCommand\NegativeCommand.h" />
+    <ClInclude Include="CommandFactory\MonochromeFactory\MonochromeFactory.h" />
+    <ClInclude Include="CommandFactory\NegativeFactory\NegativeFactory.h" />
     <ClInclude Include="Pixel\Pixel.hpp" />
     <ClInclude Include="Image\PPMImage\PPM3Image.h" />
     <ClInclude Include="Image\PPMImage\PPM6Image.h" />
+    <ClInclude Include="Command\RotateLeftCommand\RotateLeftCommand.h" />
+    <ClInclude Include="Command\RotateRightCommand\RotateRightCommand.h" />
+    <ClInclude Include="CommandFactory\RotateLeftFactory\RotateLeftFactory.h" />
+    <ClInclude Include="CommandFactory\RotateRightFactory\RotateRightFactory.h" />
+    <ClInclude Include="Session\SessionManager.h" />
+    <ClInclude Include="Session\Session.h" />
+    <ClInclude Include="SmartPointers\PolymorphicPtr.hpp" />
     <ClInclude Include="String\String.h" />
-    <ClInclude Include="Vector\Vector.hpp" />
+    <ClInclude Include="DataStructures\Vector.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

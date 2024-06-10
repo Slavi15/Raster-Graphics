@@ -60,7 +60,58 @@
     <ClCompile Include="Interface\IMonochrome.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BitSet\BitSet.cpp">
+    <ClCompile Include="DataStructures\BitSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Command\Command.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Command\GrayScaleCommand\GrayScaleCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Command\MonochromeCommand\MonochromeCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Command\RotateLeftCommand\RotateLeftCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Command\RotateRightCommand\RotateRightCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Command\NegativeCommand\NegativeCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Session\Session.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Session\SessionManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageFactory\ImageFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageEditor\ImageEditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandFactory\CommandFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandFactory\GrayScaleFactory\GrayScaleFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandFactory\MonochromeFactory\MonochromeFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandFactory\NegativeFactory\NegativeFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandFactory\RotateLeftFactory\RotateLeftFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandFactory\RotateRightFactory\RotateRightFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandFactory\FactoryOfFactories.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,7 +152,7 @@
     <ClInclude Include="Image\PPMImage\PPM6Image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Vector\Vector.hpp">
+    <ClInclude Include="DataStructures\Vector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FilePath\FilePath.h">
@@ -113,7 +164,61 @@
     <ClInclude Include="Interface\IMonochrome.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BitSet\BitSet.h">
+    <ClInclude Include="DataStructures\BitSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Command\Command.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Command\GrayScaleCommand\GrayScaleCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Command\MonochromeCommand\MonochromeCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Command\RotateLeftCommand\RotateLeftCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Command\RotateRightCommand\RotateRightCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Command\NegativeCommand\NegativeCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartPointers\PolymorphicPtr.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Session\Session.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Session\SessionManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageFactory\ImageFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageEditor\ImageEditor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandFactory\CommandFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandFactory\GrayScaleFactory\GrayScaleFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandFactory\MonochromeFactory\MonochromeFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandFactory\NegativeFactory\NegativeFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandFactory\RotateLeftFactory\RotateLeftFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandFactory\RotateRightFactory\RotateRightFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandFactory\FactoryOfFactories.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
