@@ -70,7 +70,7 @@ void ImageEditor::runImageEditor()
 		{
 			sessionManager.saveCurrentSession();
 		}
-		else if (strcmp(buffer, "save as") == 0)
+		else if (strcmp(buffer, "saveAs") == 0)
 		{
 			ss.getline(buffer, MAX_COMMAND_LENGTH + 1, NEWLINE_SEPARATOR);
 			sessionManager.saveAsCurrentSession(buffer);
@@ -103,7 +103,7 @@ void ImageEditor::printCommands() const
 	std::cout << "switch <num> - Switch to different session" << std::endl;
 	std::cout << "help - Print all available commands" << std::endl;
 	std::cout << "save - Save all changes and terminate" << std::endl;
-	std::cout << "save as - Save all changes to the first image and terminate" << std::endl;
+	std::cout << "saveAs - Save all changes to the first image and terminate" << std::endl;
 	std::cout << "close - Remove last added image from current session" << std::endl;
 	std::cout << "exit - Terminate all sessions" << std::endl;
 }
