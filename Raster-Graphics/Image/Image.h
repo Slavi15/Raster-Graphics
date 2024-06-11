@@ -38,7 +38,6 @@ public:
 	uint16_t getMaxNumber() const;
 
 	virtual void load() = 0;
-	virtual void reset() = 0;
 
 	virtual void save() const = 0;
 	virtual void saveAs(const String& filePath) const = 0;
@@ -46,10 +45,6 @@ public:
 	virtual void applyNegative() = 0;
 	virtual void rotateLeft() = 0;
 	virtual void rotateRight() = 0;
-
-	/*template <typename T>
-	virtual ImageMemento<T> createMemento() const = 0;
-	virtual void restore(const ImageMemento& memento) = 0;*/
 
 	virtual Image* clone() const = 0;
 
