@@ -15,6 +15,9 @@ void SessionManager::loadSession(const char* fileNames)
 
 	Session* currentSession = new Session();
 
+	this->sessions.push_back(currentSession);
+	currentSessionIndex++;
+
 	std::cout << "Session with ID: " << this->sessions[currentSessionIndex]->getSessionID() << " started" << std::endl;
 
 	std::stringstream ss(fileNames);
@@ -29,9 +32,6 @@ void SessionManager::loadSession(const char* fileNames)
 
 		currentSession->addImage(image);
 	}
-
-	this->sessions.push_back(currentSession);
-	currentSessionIndex++;
 }
 
 void SessionManager::addImageToCurrentSession(const char* fileNames)
@@ -99,7 +99,7 @@ void SessionManager::saveAsCurrentSession(const char* fileName)
 
 void SessionManager::switchSession(size_t newIndex)
 {
-	if (newIndex >= this->sessions.getSize())
+	if (newIndex > this->sessions.getSize() || newIndex <= 0)
 		throw std::out_of_range("Session Manager: Invalid index!");
 
 	currentSessionIndex = newIndex - 1;

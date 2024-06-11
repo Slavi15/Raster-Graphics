@@ -64,7 +64,15 @@ void ImageEditor::runImageEditor()
 		{
 			size_t index;
 			ss >> index;
-			sessionManager.switchSession(index);
+
+			try
+			{
+				sessionManager.switchSession(index);
+			}
+			catch (const std::out_of_range& exc)
+			{
+				std::cout << "Error: " << exc.what() << std::endl;
+			}
 		}
 		else if (strcmp(buffer, "save") == 0)
 		{
