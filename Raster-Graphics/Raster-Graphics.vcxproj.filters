@@ -114,6 +114,9 @@
     <ClCompile Include="CommandFactory\FactoryOfFactories.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Pixel\Pixel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Image\Image.h">
@@ -131,7 +134,7 @@
     <ClInclude Include="String\String.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Pixel\Pixel.hpp">
+    <ClInclude Include="Pixel\Pixel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Image\PBMImage\PBM1Image.h">

@@ -157,6 +157,7 @@
     <ClCompile Include="CommandFactory\NegativeFactory\NegativeFactory.cpp" />
     <ClCompile Include="CommandFactory\RotateLeftFactory\RotateLeftFactory.cpp" />
     <ClCompile Include="CommandFactory\RotateRightFactory\RotateRightFactory.cpp" />
+    <ClCompile Include="Pixel\Pixel.cpp" />
     <ClCompile Include="Session\SessionManager.cpp" />
     <ClCompile Include="Session\Session.cpp" />
     <ClCompile Include="String\String.cpp" />
@@ -185,7 +186,7 @@
     <ClInclude Include="Command\NegativeCommand\NegativeCommand.h" />
     <ClInclude Include="CommandFactory\MonochromeFactory\MonochromeFactory.h" />
     <ClInclude Include="CommandFactory\NegativeFactory\NegativeFactory.h" />
-    <ClInclude Include="Pixel\Pixel.hpp" />
+    <ClInclude Include="Pixel\Pixel.h" />
     <ClInclude Include="Image\PPMImage\PPM3Image.h" />
     <ClInclude Include="Image\PPMImage\PPM6Image.h" />
     <ClInclude Include="Command\RotateLeftCommand\RotateLeftCommand.h" />
