@@ -4,27 +4,35 @@
 
 int main()
 {
-	ImageEditor editor;
-	editor.runImageEditor();
-
-	//PPM6Image image("Files/sample_640x426.ppm");
-
-	//Image* ptr = &image;
-
-	//ptr->load();
-
-	////ptr->rotateLeft();
-
-	////dynamic_cast<IMonochrome*>(ptr)->applyMonochrome();
-
-	//ptr->applyNegative();
-	//ptr->applyNegative();
-
-	////ptr->rotateLeft();
-
-	////ptr->rotateRight();
-
-	//ptr->saveAs("Files/sample_640x426Neg.ppm");
+	try
+	{
+		ImageEditor editor;
+		editor.runImageEditor();
+	}
+	catch (const std::invalid_argument& exc)
+	{
+		std::cout << "Error: " << exc.what() << std::endl;
+	}
+	catch (const std::out_of_range& exc)
+	{
+		std::cout << "Error: " << exc.what() << std::endl;
+	}
+	catch (const std::logic_error& exc)
+	{
+		std::cout << "Error: " << exc.what() << std::endl;
+	}
+	catch (const std::runtime_error& exc)
+	{
+		std::cout << "Error: " << exc.what() << std::endl;
+	}
+	catch (const std::exception& exc)
+	{
+		std::cout << "Error: " << exc.what() << std::endl;
+	}
+	catch (...)
+	{
+		std::cout << "Unknown error!" << std::endl;
+	}
 
 	return 0;
 }
