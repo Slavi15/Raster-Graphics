@@ -34,7 +34,7 @@ void Session::removeImage()
 void Session::execute()
 {
 	if (this->commands.isEmpty())
-		throw std::runtime_error("Session: No commands are available!");
+		return;
 
 	for (size_t i = 0; i < this->images.getSize(); i++)
 	{
@@ -53,7 +53,7 @@ void Session::execute()
 void Session::executeAll()
 {
 	if (this->commands.isEmpty())
-		throw std::runtime_error("Session: No commands are available!");
+		return;
 
 	for (size_t i = 0; i < this->commands.getSize(); i++)
 	{
@@ -63,7 +63,7 @@ void Session::executeAll()
 
 void Session::undo()
 {
-	if (this->commandsIndex < 0)
+	if (this->commands.isEmpty())
 		throw std::runtime_error("Session: No commands are available in history!");
 
 	for (size_t i = 0; i < this->images.getSize(); i++)
@@ -71,7 +71,8 @@ void Session::undo()
 		this->commands[commandsIndex]->undo(this->images[i].get());
 	}
 
-	(--commandsIndex) %= this->commands.getSize();
+	this->commands.pop_back();
+	//(--commandsIndex) %= this->commands.getSize(); // division by zero error
 }
 
 void Session::save()

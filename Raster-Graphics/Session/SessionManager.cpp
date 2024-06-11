@@ -15,6 +15,8 @@ void SessionManager::loadSession(const char* fileNames)
 
 	Session* currentSession = new Session();
 
+	std::cout << "Session with ID: " << this->sessions[currentSessionIndex]->getSessionID() << " started" << std::endl;
+
 	std::stringstream ss(fileNames);
 	char fileName[MAX_FILENAME_LENGTH + 1]{ };
 
@@ -30,8 +32,6 @@ void SessionManager::loadSession(const char* fileNames)
 
 	this->sessions.push_back(currentSession);
 	currentSessionIndex++;
-
-	std::cout << "Session with ID: " << this->sessions[currentSessionIndex]->getSessionID() << " started" << std::endl;
 }
 
 void SessionManager::addImageToCurrentSession(const char* fileNames)
