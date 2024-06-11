@@ -6,6 +6,8 @@
 #include "../String/String.h"
 #include "../FilePath/FilePath.h"
 
+#include "../Memento/Memento.h"
+
 #define PBM1_IMAGE_NUMBER '1'
 #define PBM4_IMAGE_NUMBER '4'
 
@@ -45,6 +47,9 @@ public:
 	virtual void applyNegative() = 0;
 	virtual void rotateLeft() = 0;
 	virtual void rotateRight() = 0;
+
+	virtual Memento createMemento() const = 0;
+	virtual void restore(const Memento& memento) = 0;
 
 	virtual Image* clone() const = 0;
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../Interface/IMonochrome.h"
+#include "../../Interface/MonochromeInterface/IMonochrome.h"
 #include "../../DataStructures/Vector.hpp"
 
 #define MINIMAL_PGM_COLOR 0
@@ -20,4 +20,7 @@ public:
 
 	void rotateLeft() override;
 	void rotateRight() override;
+
+	Memento createMemento() const override;
+	void restore(const Memento& memento) override;
 };

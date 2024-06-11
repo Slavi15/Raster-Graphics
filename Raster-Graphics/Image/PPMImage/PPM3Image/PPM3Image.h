@@ -1,6 +1,6 @@
 #pragma once
 
-#include "PPMImage.h"
+#include "../PPMImage.h"
 
 class PPM3Image : public PPMImage
 {

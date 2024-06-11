@@ -15,4 +15,7 @@ public:
 
 	void rotateLeft() override;
 	void rotateRight() override;
+
+	Memento createMemento() const override;
+	void restore(const Memento& memento) override;
 };

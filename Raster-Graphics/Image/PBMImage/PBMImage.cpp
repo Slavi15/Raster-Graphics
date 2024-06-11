@@ -47,3 +47,13 @@ void PBMImage::rotateRight()
 	std::swap(this->width, this->height);
 	this->imageData = newImageData;
 }
+
+Memento PBMImage::createMemento() const
+{
+	return Memento(this->clone());
+}
+
+void PBMImage::restore(const Memento& memento)
+{
+	this->imageData = dynamic_cast<PBMImage*>(memento.getState())->imageData;
+}

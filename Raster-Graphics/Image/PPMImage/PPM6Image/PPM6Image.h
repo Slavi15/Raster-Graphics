@@ -1,11 +1,11 @@
 #pragma once
 
-#include "PGMImage.h"
+#include "../PPMImage.h"
 
-class PGM5Image : public PGMImage
+class PPM6Image : public PPMImage
 {
 public:
-	PGM5Image(const String& fileName);
+	PPM6Image(const String& fileName);
 
 	void load() override;
 

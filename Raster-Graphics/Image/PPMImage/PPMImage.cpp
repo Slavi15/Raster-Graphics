@@ -103,3 +103,13 @@ void PPMImage::rotateRight()
 	std::swap(this->width, this->height);
 	this->imageData = newImageData;
 }
+
+Memento PPMImage::createMemento() const
+{
+	return Memento(this->clone());
+}
+
+void PPMImage::restore(const Memento& memento)
+{
+	this->imageData = dynamic_cast<PPMImage*>(memento.getState())->imageData;
+}

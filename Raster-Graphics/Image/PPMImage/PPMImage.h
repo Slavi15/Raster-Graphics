@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../../Interface/IGrayScale.h"
-#include "../../Interface/IMonochrome.h"
+#include "../../Interface/GrayScaleInterface/IGrayScale.h"
+#include "../../Interface/MonochromeInterface/IMonochrome.h"
 
 #include "../../DataStructures/Vector.hpp"
 #include "../../Pixel/Pixel.h"
@@ -26,4 +26,7 @@ public:
 
 	void rotateLeft() override;
 	void rotateRight() override;
+
+	Memento createMemento() const override;
+	void restore(const Memento& memento) override;
 };
