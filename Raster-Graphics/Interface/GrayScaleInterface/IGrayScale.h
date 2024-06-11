@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Image/Image.h"
+#include "../../Image/Image.h"
 
 class IGrayScale : virtual public Image
 {
