@@ -11,8 +11,6 @@ protected:
 public:
 	PBMImage(const String& fileName);
 
-	void reset() override;
-
 	void applyNegative() override;
 
 	void rotateLeft() override;

@@ -2,11 +2,6 @@
 
 PBMImage::PBMImage(const String& fileName) : Image(fileName) {}
 
-void PBMImage::reset()
-{
-	this->imageData.reset();
-}
-
 void PBMImage::applyNegative()
 {
 	for (size_t i = 0; i < this->imageData.getN(); i++)
