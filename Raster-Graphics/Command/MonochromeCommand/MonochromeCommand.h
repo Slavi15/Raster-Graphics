@@ -1,12 +1,12 @@
 #pragma once
 
 #include "../Command.h"
-#include "../../Interface/IMonochrome.h"
+#include "../../Interface/MonochromeInterface/IMonochrome.h"
 
 class MonochromeCommand : public Command
 {
 private:
-	Image* snapshot;
+	Memento beforeState;
 
 public:
 	MonochromeCommand();

@@ -10,7 +10,7 @@ void MonochromeCommand::execute(Image* image)
 	if (image->getMagicNumber() == PBM1_IMAGE_NUMBER || image->getMagicNumber() == PBM4_IMAGE_NUMBER)
 		return;
 
-	this->snapshot = image;
+	beforeState = image->createMemento();
 	dynamic_cast<IMonochrome*>(image)->applyMonochrome();
 }
 
@@ -22,7 +22,7 @@ void MonochromeCommand::undo(Image* image)
 	if (image->getMagicNumber() == PBM1_IMAGE_NUMBER || image->getMagicNumber() == PBM4_IMAGE_NUMBER)
 		return;
 
-	image = (Image*)this->snapshot;
+	image->restore(beforeState);
 }
 
 Command* MonochromeCommand::clone() const

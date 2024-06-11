@@ -1,12 +1,12 @@
 #pragma once
 
 #include "../Command.h"
-#include "../../Interface/IGrayScale.h"
+#include "../../Interface/GrayScaleInterface/IGrayScale.h"
 
 class GrayScaleCommand : public Command
 {
 private:
-	Image* snapshot;
+	Memento beforeState;
 
 public:
 	GrayScaleCommand();
