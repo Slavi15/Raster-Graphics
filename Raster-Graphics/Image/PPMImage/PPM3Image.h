@@ -4,28 +4,13 @@
 
 class PPM3Image : public PPMImage
 {
-private:
-	Vector<Pixel<uint16_t>> imageData;
-
 public:
 	PPM3Image(const String& fileName);
 
 	void load() override;
-	void reset() override;
 
 	void save() const override;
 	void saveAs(const String& fileName) const override;
-
-	void applyGrayscale() override;
-	bool isGrayScale() const override;
-
-	void applyMonochrome() override;
-	bool isMonochrome() const override;
-
-	void applyNegative() override;
-
-	void rotateLeft() override;
-	void rotateRight() override;
 
 	Image* clone() const override;
 };

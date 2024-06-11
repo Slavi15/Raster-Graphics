@@ -4,13 +4,26 @@
 #include "../../Interface/IMonochrome.h"
 
 #include "../../DataStructures/Vector.hpp"
-#include "../../Pixel/Pixel.hpp"
+#include "../../Pixel/Pixel.h"
+
+#define MINIMAL_PPM_COLOR 0
 
 class PPMImage : public IGrayScale, public IMonochrome
 {
 protected:
-	static constexpr uint16_t minimalPPMColor = 0;
+	Vector<Pixel> imageData;
 
 public:
 	PPMImage(const String& fileName);
+
+	void applyGrayscale() override;
+	bool isGrayScale() const override;
+
+	void applyMonochrome() override;
+	bool isMonochrome() const override;
+
+	void applyNegative() override;
+
+	void rotateLeft() override;
+	void rotateRight() override;
 };
