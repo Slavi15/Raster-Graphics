@@ -33,31 +33,31 @@
     <ClCompile Include="String\String.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Image\PBMImage\PBM1Image.cpp">
+    <ClCompile Include="Image\PBMImage\PBM1Image\PBM1Image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Image\PBMImage\PBM4Image.cpp">
+    <ClCompile Include="Image\PBMImage\PBM4Image\PBM4Image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Image\PGMImage\PGM2Image.cpp">
+    <ClCompile Include="Image\PGMImage\PGM2Image\PGM2Image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Image\PGMImage\PGM5Image.cpp">
+    <ClCompile Include="Image\PGMImage\PGM5Image\PGM5Image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Image\PPMImage\PPM3Image.cpp">
+    <ClCompile Include="Image\PPMImage\PPM3Image\PPM3Image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Image\PPMImage\PPM6Image.cpp">
+    <ClCompile Include="Image\PPMImage\PPM6Image\PPM6Image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="FilePath\FilePath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Interface\IGrayScale.cpp">
+    <ClCompile Include="Interface\GrayScaleInterface\IGrayScale.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Interface\IMonochrome.cpp">
+    <ClCompile Include="Interface\MonochromeInterface\IMonochrome.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DataStructures\BitSet.cpp">
@@ -117,6 +117,9 @@
     <ClCompile Include="Pixel\Pixel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Memento\Memento.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Image\Image.h">
@@ -137,22 +140,22 @@
     <ClInclude Include="Pixel\Pixel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Image\PBMImage\PBM1Image.h">
+    <ClInclude Include="Image\PBMImage\PBM1Image\PBM1Image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Image\PBMImage\PBM4Image.h">
+    <ClInclude Include="Image\PBMImage\PBM4Image\PBM4Image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Image\PGMImage\PGM2Image.h">
+    <ClInclude Include="Image\PGMImage\PGM2Image\PGM2Image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Image\PGMImage\PGM5Image.h">
+    <ClInclude Include="Image\PGMImage\PGM5Image\PGM5Image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Image\PPMImage\PPM3Image.h">
+    <ClInclude Include="Image\PPMImage\PPM3Image\PPM3Image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Image\PPMImage\PPM6Image.h">
+    <ClInclude Include="Image\PPMImage\PPM6Image\PPM6Image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DataStructures\Vector.hpp">
@@ -161,10 +164,10 @@
     <ClInclude Include="FilePath\FilePath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Interface\IGrayScale.h">
+    <ClInclude Include="Interface\GrayScaleInterface\IGrayScale.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Interface\IMonochrome.h">
+    <ClInclude Include="Interface\MonochromeInterface\IMonochrome.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DataStructures\BitSet.h">
@@ -222,6 +225,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CommandFactory\FactoryOfFactories.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Memento\Memento.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
