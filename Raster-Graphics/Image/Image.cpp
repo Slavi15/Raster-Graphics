@@ -27,6 +27,12 @@ uint16_t Image::getMaxNumber() const
     return this->maxNumber;
 }
 
+void Image::resize(size_t newWidth, size_t newHeight)
+{
+    this->width = newWidth;
+    this->height = newHeight;
+}
+
 size_t Image::getImageSize(std::ifstream& ifs)
 {
     size_t currentPos = ifs.tellg();
@@ -36,4 +42,14 @@ size_t Image::getImageSize(std::ifstream& ifs)
     ifs.seekg(currentPos, std::ios::beg);
 
     return size - currentPos;
+}
+
+size_t Image::getImageSize(const char* fileName)
+{
+    std::ifstream ifs(fileName, std::ios::in | std::ios::binary);
+
+    if (!ifs.is_open())
+        throw std::runtime_error("NULLPTR!");
+
+    return getImageSize(ifs);
 }

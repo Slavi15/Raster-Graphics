@@ -1,6 +1,9 @@
 #include "PPM6Image.h"
 
-PPM6Image::PPM6Image(const String& fileName) : PPMImage(fileName), Image(fileName) {}
+PPM6Image::PPM6Image(const String& fileName) : PPMImage(fileName), Image(fileName)
+{
+	this->magicNumber = PPM6_IMAGE_NUMBER;
+}
 
 void PPM6Image::load()
 {
@@ -9,8 +12,8 @@ void PPM6Image::load()
 	if (!ifs.is_open())
 		throw std::runtime_error("PPM6 Image: Could not open file!");
 
-	ifs.ignore();
-	ifs >> this->magicNumber >> this->width >> this->height >> this->maxNumber;
+	ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	ifs >> this->width >> this->height >> this->maxNumber;
 
 	size_t imageSize = getImageSize(ifs);
 	size_t numPixels = (imageSize % sizeof(Pixel) == 0) ? imageSize / sizeof(Pixel) : (imageSize / sizeof(Pixel)) + 1;

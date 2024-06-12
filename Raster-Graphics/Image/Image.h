@@ -29,6 +29,7 @@ protected:
 	uint16_t maxNumber = 0;
 
 	static size_t getImageSize(std::ifstream& ifs);
+	static size_t getImageSize(const char* fileName);
 
 public:
 	Image(const String& fileName);
@@ -47,6 +48,12 @@ public:
 	virtual void applyNegative() = 0;
 	virtual void rotateLeft() = 0;
 	virtual void rotateRight() = 0;
+
+	virtual void collage(Image* leftImage, Image* rightImage, const String& direction) = 0;
+	virtual void horizontalCollage(Image* leftImage, Image* rightImage) = 0;
+	virtual void verticalCollage(Image* leftImage, Image* rightImage) = 0;
+
+	void resize(size_t newWidth, size_t newHeight);
 
 	virtual Memento createMemento() const = 0;
 	virtual void restore(const Memento& memento) = 0;

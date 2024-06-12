@@ -1,6 +1,9 @@
 #include "PGM2Image.h"
 
-PGM2Image::PGM2Image(const String& fileName) : PGMImage(fileName), Image(fileName) {}
+PGM2Image::PGM2Image(const String& fileName) : PGMImage(fileName), Image(fileName)
+{
+	this->magicNumber = PGM2_IMAGE_NUMBER;
+}
 
 void PGM2Image::load()
 {
@@ -9,10 +12,8 @@ void PGM2Image::load()
 	if (!ifs.is_open())
 		throw std::runtime_error("PGM2 Image: Could not open file!");
 
-	//ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
-	ifs.ignore();
-	ifs >> this->magicNumber >> this->width >> this->height >> this->maxNumber;
+	ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	ifs >> this->width >> this->height >> this->maxNumber;
 
 	this->imageData = Vector<uint8_t>(getWidth() * getHeight());
 
@@ -41,7 +42,7 @@ void PGM2Image::saveAs(const String& fileName) const
 
 	ofs << "P2" << std::endl;
 	ofs << this->width << " " << this->height << std::endl;
-	ofs << this->maxNumber << std::endl;
+	ofs << this->maxNumber;
 
 	size_t vectorIndex = 0;
 	for (size_t i = 0; i < getHeight(); i++)

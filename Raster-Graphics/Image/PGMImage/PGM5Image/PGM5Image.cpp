@@ -1,6 +1,9 @@
 #include "PGM5Image.h"
 
-PGM5Image::PGM5Image(const String& fileName) : PGMImage(fileName), Image(fileName) {}
+PGM5Image::PGM5Image(const String& fileName) : PGMImage(fileName), Image(fileName)
+{
+	this->magicNumber = PGM5_IMAGE_NUMBER;
+}
 
 void PGM5Image::load()
 {
@@ -9,10 +12,8 @@ void PGM5Image::load()
 	if (!ifs.is_open())
 		throw std::runtime_error("PGM5 Image: Could not open file!");
 
-	//ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
-	ifs.ignore();
-	ifs >> this->magicNumber >> this->width >> this->height >> this->maxNumber;
+	ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	ifs >> this->width >> this->height >> this->maxNumber;
 
 	size_t imageSize = getImageSize(ifs);
 

@@ -1,6 +1,9 @@
 #include "PBM4Image.h"
 
-PBM4Image::PBM4Image(const String& fileName) : PBMImage(fileName) {}
+PBM4Image::PBM4Image(const String& fileName) : PBMImage(fileName)
+{
+	this->magicNumber = PBM4_IMAGE_NUMBER;
+}
 
 void PBM4Image::load()
 {
@@ -9,10 +12,8 @@ void PBM4Image::load()
 	if (!ifs.is_open())
 		throw std::runtime_error("PBM4 Image: Could not open file!");
 
-	/*ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	ifs >> this->width >> this->height;*/
-	ifs.ignore();
-	ifs >> this->magicNumber >> this->width >> this->height >> this->maxNumber;
+	ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	ifs >> this->width >> this->height >> this->maxNumber;
 
 	size_t imageSize = getWidth() * getHeight();
 

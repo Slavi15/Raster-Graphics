@@ -1,6 +1,9 @@
 #include "PBM1Image.h"
 
-PBM1Image::PBM1Image(const String& fileName) : PBMImage(fileName) {}
+PBM1Image::PBM1Image(const String& fileName) : PBMImage(fileName)
+{
+	this->magicNumber = PBM1_IMAGE_NUMBER;
+}
 
 void PBM1Image::load()
 {
@@ -9,10 +12,8 @@ void PBM1Image::load()
 	if (!ifs.is_open())
 		throw std::runtime_error("PBM1 Image: Could not open file!");
 
-	/*ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	ifs >> this->width >> this->height;*/
-	ifs.ignore();
-	ifs >> this->magicNumber >> this->width >> this->height >> this->maxNumber;
+	ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	ifs >> this->width >> this->height >> this->maxNumber;
 
 	this->imageData = BitSet(getWidth() * getHeight());
 
@@ -44,7 +45,7 @@ void PBM1Image::saveAs(const String& fileName) const
 		throw std::runtime_error("PBM1 Image: Could not open file!");
 
 	ofs << "P1" << std::endl;
-	ofs << this->width << " " << this->height << std::endl;
+	ofs << this->width << " " << this->height;
 
 	size_t num = 0;
 	for (size_t i = 0; i < getHeight(); i++)

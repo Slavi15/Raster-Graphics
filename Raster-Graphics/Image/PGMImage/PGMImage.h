@@ -21,6 +21,10 @@ public:
 	void rotateLeft() override;
 	void rotateRight() override;
 
+	void collage(Image* leftImage, Image* rightImage, const String& direction) override;
+	void horizontalCollage(Image* leftImage, Image* rightImage) override;
+	void verticalCollage(Image* leftImage, Image* rightImage) override;
+
 	Memento createMemento() const override;
 	void restore(const Memento& memento) override;
 };

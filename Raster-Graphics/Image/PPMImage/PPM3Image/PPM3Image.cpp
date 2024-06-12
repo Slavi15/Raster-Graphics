@@ -1,6 +1,9 @@
 #include "PPM3Image.h"
 
-PPM3Image::PPM3Image(const String& fileName) : PPMImage(fileName), Image(fileName) {}
+PPM3Image::PPM3Image(const String& fileName) : PPMImage(fileName), Image(fileName)
+{
+	this->magicNumber = PPM3_IMAGE_NUMBER;
+}
 
 void PPM3Image::load()
 {
@@ -9,8 +12,8 @@ void PPM3Image::load()
 	if (!ifs.is_open())
 		throw std::runtime_error("PPM3 Image: Could not open file!");
 
-	ifs.ignore();
-	ifs >> this->magicNumber >> this->width >> this->height >> this->maxNumber;
+	ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	ifs >> this->width >> this->height >> this->maxNumber;
 
 	this->imageData = Vector<Pixel>(getWidth() * getHeight());
 
@@ -39,7 +42,7 @@ void PPM3Image::saveAs(const String& fileName) const
 
 	ofs << "P3" << std::endl;
 	ofs << this->width << " " << this->height << std::endl;
-	ofs << this->maxNumber << std::endl;
+	ofs << this->maxNumber;
 
 	for (size_t i = 0; i < imageData.getSize(); i++)
 	{

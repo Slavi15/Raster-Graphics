@@ -73,6 +73,98 @@ void PGMImage::rotateRight()
 	this->imageData = newImageData;
 }
 
+void PGMImage::collage(Image* leftImage, Image* rightImage, const String& direction)
+{
+	if (!leftImage || !rightImage)
+		throw std::runtime_error("PPM Image Collage: NULLPTR!");
+
+	this->maxNumber = std::max(leftImage->getMaxNumber(), rightImage->getMaxNumber());
+
+	if (direction == "horizontal")
+	{
+		return horizontalCollage(leftImage, rightImage);
+	}
+	else if (direction == "vertical")
+	{
+		return verticalCollage(leftImage, rightImage);
+	}
+}
+
+void PGMImage::horizontalCollage(Image* leftImage, Image* rightImage)
+{
+	if (!leftImage || !rightImage)
+		throw std::runtime_error("PPM Image Collage: NULLPTR!");
+
+	uint16_t newWidth = std::max(leftImage->getWidth(), rightImage->getWidth());
+	uint16_t newHeight = leftImage->getHeight() + rightImage->getHeight();
+
+	resize(newWidth, newHeight);
+
+	if (getMagicNumber() == PGM2_IMAGE_NUMBER)
+	{
+		this->imageData = Vector<uint8_t>(newWidth * newHeight);
+	}
+	else if (getMagicNumber() == PGM5_IMAGE_NUMBER)
+	{
+		this->imageData = Vector<uint8_t>(leftImage->getImageSize(leftImage->getFileName()) + rightImage->getImageSize(rightImage->getFileName()));
+	}
+
+	for (size_t i = 0; i < leftImage->getHeight(); i++)
+	{
+		for (size_t j = 0; j < leftImage->getWidth(); j++)
+		{
+			this->imageData[i * newWidth + j] = dynamic_cast<PGMImage*>(leftImage)->imageData[i * leftImage->getWidth() + j];
+		}
+	}
+
+	for (size_t i = 0; i < rightImage->getHeight(); i++)
+	{
+		for (size_t j = 0; j < rightImage->getWidth(); j++)
+		{
+			this->imageData[(i + leftImage->getHeight()) * newWidth + j] = dynamic_cast<PGMImage*>(rightImage)->imageData[i * rightImage->getWidth() + j];
+		}
+	}
+
+	std::cout << "New collage \"" << getFileName() << "\" created" << std::endl;
+	save();
+}
+
+void PGMImage::verticalCollage(Image* leftImage, Image* rightImage)
+{
+	if (!leftImage || !rightImage)
+		throw std::runtime_error("PPM Image Collage: NULLPTR!");
+
+	uint16_t newWidth = leftImage->getWidth() + rightImage->getWidth();
+	uint16_t newHeight = std::max(leftImage->getHeight(), rightImage->getHeight());
+
+	resize(newWidth, newHeight);
+
+	if (getMagicNumber() == PGM2_IMAGE_NUMBER)
+	{
+		this->imageData = Vector<uint8_t>(newWidth * newHeight);
+	}
+	else if (getMagicNumber() == PGM5_IMAGE_NUMBER)
+	{
+		this->imageData = Vector<uint8_t>(leftImage->getImageSize(leftImage->getFileName()) + rightImage->getImageSize(rightImage->getFileName()));
+	}
+
+	for (size_t i = 0; i < leftImage->getHeight(); i++)
+	{
+		for (size_t j = 0; j < leftImage->getWidth(); j++)
+		{
+			this->imageData[i * newWidth + j] = dynamic_cast<PGMImage*>(leftImage)->imageData[i * leftImage->getWidth() + j];
+		}
+
+		for (size_t j = 0; j < rightImage->getWidth(); j++)
+		{
+			this->imageData[i * newWidth + (j + leftImage->getWidth())] = dynamic_cast<PGMImage*>(rightImage)->imageData[i * rightImage->getWidth() + j];
+		}
+	}
+
+	std::cout << "New collage \"" << getFileName() << "\" created" << std::endl;
+	save();
+}
+
 Memento PGMImage::createMemento() const
 {
 	return Memento(this->clone());
