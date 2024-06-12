@@ -74,6 +74,13 @@ void ImageEditor::runImageEditor()
 				std::cout << "Error: " << exc.what() << std::endl;
 			}
 		}
+		else if (strcmp(buffer, "collage") == 0)
+		{
+			String direction, leftImage, rightImage, outputImage;
+			ss >> direction >> leftImage >> rightImage >> outputImage;
+
+			sessionManager.createCollage(direction, leftImage, rightImage, outputImage);
+		}
 		else if (strcmp(buffer, "save") == 0)
 		{
 			sessionManager.saveCurrentSession();
