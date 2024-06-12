@@ -63,3 +63,33 @@ Image* ImageFactory::imageFactory(const char* fileName)
 
     return nullptr;
 }
+
+Image* ImageFactory::imageFactory(const char* fileName, uint8_t magicNumber)
+{
+    if (magicNumber == PBM1_IMAGE_NUMBER)
+    {
+        return new PBM1Image(fileName);
+    }
+    else if (magicNumber == PBM4_IMAGE_NUMBER)
+    {
+        return new PBM4Image(fileName);
+    }
+    else if (magicNumber == PGM2_IMAGE_NUMBER)
+    {
+        return new PGM2Image(fileName);
+    }
+    else if (magicNumber == PGM5_IMAGE_NUMBER)
+    {
+        return new PGM5Image(fileName);
+    }
+    else if (magicNumber == PPM3_IMAGE_NUMBER)
+    {
+        return new PPM3Image(fileName);
+    }
+    else if (magicNumber == PPM6_IMAGE_NUMBER)
+    {
+        return new PPM6Image(fileName);
+    }
+
+    return nullptr;
+}

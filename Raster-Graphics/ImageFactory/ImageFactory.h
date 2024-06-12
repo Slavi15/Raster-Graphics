@@ -15,5 +15,6 @@
 class ImageFactory
 {
 public:
-	static Image* imageFactory(const char* fileName);
+	static Image* imageFactory(const char* fileName); // for adding to container valid image files
+	static Image* imageFactory(const char* fileName, uint8_t magicNumber); // for collage Image creation
 };
