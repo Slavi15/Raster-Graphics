@@ -84,6 +84,11 @@ void SessionManager::undoCommandCurrentSession()
 	this->sessions[currentSessionIndex]->undo();
 }
 
+void SessionManager::createCollage(const String& direction, const String& leftImage, const String& rightImage, const String& outputFile)
+{
+	return this->sessions[currentSessionIndex]->createCollage(direction, leftImage, rightImage, outputFile);
+}
+
 void SessionManager::saveCurrentSession()
 {
 	this->sessions[currentSessionIndex]->save();

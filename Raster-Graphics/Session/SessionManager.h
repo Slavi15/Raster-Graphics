@@ -4,8 +4,6 @@
 
 #include "../Command/Command.h"
 
-#include "../ImageFactory/ImageFactory.h"
-
 #include "../DataStructures/Vector.hpp"
 #include "../SmartPointers/PolymorphicPtr.hpp"
 
@@ -38,6 +36,8 @@ public:
 	void executeAllCommandsCurrentSession();
 
 	void undoCommandCurrentSession();
+
+	void createCollage(const String& direction, const String& leftImage, const String& rightImage, const String& outputFile);
 
 	void saveCurrentSession();
 	void saveAsCurrentSession(const char* fileName);

@@ -9,6 +9,19 @@ size_t Session::getSessionID() const
 	return this->sessionID;
 }
 
+int Session::getImageIndex(const String& fileName) const
+{
+	for (size_t i = 0; i < this->images.getSize(); i++)
+	{
+		if (this->images[i]->getFileName() == fileName)
+		{
+			return i;
+		}
+	}
+
+	return -1;
+}
+
 void Session::addImage(Image* image)
 {
 	if (!image)
@@ -73,6 +86,34 @@ void Session::undo()
 
 	this->commands.pop_back();
 	//(--commandsIndex) %= this->commands.getSize(); // division by zero error
+}
+
+void Session::createCollage(const String& direction, const String& leftImage, const String& rightImage, const String& outputFile)
+{
+	int leftImageIndex = getImageIndex(leftImage);
+	int rightImageIndex = getImageIndex(rightImage);
+
+	FilePath filePathOne(leftImage);
+	FilePath filePathTwo(rightImage);
+
+	if (filePathOne.getExtension() != filePathTwo.getExtension())
+	{
+		std::cout << "Cannot make a collage from different types! ( " << filePathOne.getExtension() << " and " << filePathTwo.getExtension() << ")" << std::endl;
+		return;
+	}
+
+	if (this->images[leftImageIndex]->getWidth() != this->images[rightImageIndex]->getWidth() ||
+		this->images[leftImageIndex]->getHeight() != this->images[rightImageIndex]->getHeight())
+	{
+		std::cout << "Cannot make a collage from images with different dimensions!" << std::endl;
+		return;
+	}
+
+	Image* output = ImageFactory::imageFactory(outputFile.c_str(), this->images[leftImageIndex]->getMagicNumber());
+
+	output->collage(this->images[leftImageIndex].get(), this->images[rightImageIndex].get(), direction);
+
+	delete output;
 }
 
 void Session::save()
