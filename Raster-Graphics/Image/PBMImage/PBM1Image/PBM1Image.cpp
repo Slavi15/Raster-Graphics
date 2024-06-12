@@ -13,7 +13,7 @@ void PBM1Image::load()
 		throw std::runtime_error("PBM1 Image: Could not open file!");
 
 	ifs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	ifs >> this->width >> this->height >> this->maxNumber;
+	ifs >> this->width >> this->height;
 
 	this->imageData = BitSet(getWidth() * getHeight());
 
