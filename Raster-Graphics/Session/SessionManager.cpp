@@ -13,9 +13,7 @@ void SessionManager::loadSession(const char* fileNames)
 	if (!fileNames)
 		throw std::runtime_error("Session Manager: NULLPTR!");
 
-	Session* currentSession = new Session();
-
-	this->sessions.push_back(currentSession);
+	this->sessions.push_back(new Session());
 	currentSessionIndex++;
 
 	std::cout << "Session with ID: " << this->sessions[currentSessionIndex]->getSessionID() << " started" << std::endl;
@@ -30,7 +28,7 @@ void SessionManager::loadSession(const char* fileNames)
 		Image* image = ImageFactory::imageFactory(fileName);
 		image->load();
 
-		currentSession->addImage(image);
+		this->sessions[currentSessionIndex]->addImage(image);
 	}
 }
 

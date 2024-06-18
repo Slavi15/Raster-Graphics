@@ -1,15 +1,18 @@
 #pragma once
 
+#include "../SmartPointers/PolymorphicPtr.hpp"
+#include <utility>
+
 class Image;
 
 class Memento
 {
 private:
-	const Image* imagePtr;
+	PolymorphicPtr<Image> imagePtr;
 
 public:
 	Memento();
-	Memento(const Image* imagePtr);
+	Memento(Image* imagePtr);
 
 	Image* getState() const;
 };

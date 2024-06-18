@@ -8,7 +8,7 @@ void ImageEditor::runImageEditor()
 
 	while (std::cin.getline(command, MAX_COMMAND_LENGTH + 1, NEWLINE_SEPARATOR))
 	{
-		std::stringstream ss(command);
+			std::stringstream ss(command);
 
 		char buffer[MAX_COMMAND_LENGTH + 1]{ };
 		ss.getline(buffer, MAX_COMMAND_LENGTH + 1, SPACE_SEPARATOR);

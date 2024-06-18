@@ -1,5 +1,8 @@
 #pragma once
 
+#include <utility>
+#include <stdexcept>
+
 template <typename T>
 class PolymorphicPtr
 {
