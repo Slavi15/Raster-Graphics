@@ -53,14 +53,14 @@ void Session::execute()
 	{
 		try
 		{
-			this->commands[commandsIndex]->execute(this->images[i].get());
+			this->commands[commandsCount]->execute(this->images[i].get());
 		}
 		catch (const std::logic_error&) { continue; }
 		catch (const std::invalid_argument&) { continue; }
 		catch (const std::runtime_error&) { return; }
 	}
 
-	(++commandsIndex) %= this->commands.getSize();
+	commandsCount++;
 }
 
 void Session::executeAll()
@@ -68,7 +68,7 @@ void Session::executeAll()
 	if (this->commands.isEmpty())
 		return;
 
-	for (size_t i = 0; i < this->commands.getSize(); i++)
+	for (size_t i = commandsCount; i < this->commands.getSize(); i++)
 	{
 		execute();
 	}
@@ -81,11 +81,11 @@ void Session::undo()
 
 	for (size_t i = 0; i < this->images.getSize(); i++)
 	{
-		this->commands[commandsIndex]->undo(this->images[i].get());
+		this->commands[this->commands.getSize() - 1]->undo(this->images[i].get());
 	}
 
 	this->commands.pop_back();
-	//(--commandsIndex) %= this->commands.getSize(); // division by zero error
+	commandsCount--;
 }
 
 void Session::createCollage(const String& direction, const String& leftImage, const String& rightImage, const String& outputFile)

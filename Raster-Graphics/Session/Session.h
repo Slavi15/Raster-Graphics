@@ -14,7 +14,7 @@ private:
 	size_t sessionID = 0;
 	static size_t sessionCounter;
 
-	size_t commandsIndex = 0;
+	size_t commandsCount = 0;
 
 	Vector<PolymorphicPtr<Image>> images;
 	Vector<PolymorphicPtr<Command>> commands;
