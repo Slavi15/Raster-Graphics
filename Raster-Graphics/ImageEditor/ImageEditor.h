@@ -5,7 +5,6 @@
 #include "../CommandFactory/FactoryOfFactories.h"
 
 #define MAX_COMMAND_LENGTH 1024
-
 #define NEWLINE_SEPARATOR '\n'
 
 class ImageEditor
