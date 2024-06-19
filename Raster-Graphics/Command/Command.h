@@ -10,7 +10,7 @@ private:
 public:
 	Command(const String& commandType);
 
-	String getCommand() const;
+	const String& getCommand() const;
 
 	virtual void execute(Image* image) = 0;
 	virtual void undo(Image* image) = 0;

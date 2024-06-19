@@ -2,7 +2,7 @@
 
 Command::Command(const String& commandType) : commandType(commandType) {}
 
-String Command::getCommand() const
+const String& Command::getCommand() const
 {
 	return this->commandType;
 }
