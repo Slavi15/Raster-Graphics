@@ -17,4 +17,6 @@ private:
 
 public:
 	void runImageEditor();
+
+	~ImageEditor() noexcept;
 };

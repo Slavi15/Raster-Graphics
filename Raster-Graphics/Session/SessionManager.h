@@ -17,7 +17,6 @@ private:
 	int currentSessionIndex = -1;
 
 	SessionManager();
-	~SessionManager() noexcept = default;
 
 public:
 	static SessionManager& getInstance();
@@ -45,4 +44,6 @@ public:
 	void switchSession(size_t newIndex);
 
 	void printCurrentSessionInfo() const;
+
+	~SessionManager() noexcept = default;
 };

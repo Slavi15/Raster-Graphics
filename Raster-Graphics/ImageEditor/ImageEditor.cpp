@@ -122,3 +122,9 @@ void ImageEditor::printCommands() const
 	std::cout << "close - Remove last added image from current session" << std::endl;
 	std::cout << "exit - Terminate all sessions" << std::endl;
 }
+
+// the Singleton deletes itself implicitly, but I added it explicitly, so that the data is deleted before "return 0;" in main.cpp, due to the static Singleton instance
+ImageEditor::~ImageEditor() noexcept
+{
+	this->sessionManager.~SessionManager();
+}

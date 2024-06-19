@@ -1,7 +1,8 @@
 #pragma once
 
-#include "../SmartPointers/PolymorphicPtr.hpp"
 #include <utility>
+
+#include "../SmartPointers/PolymorphicPtr.hpp"
 
 class Image;
 
