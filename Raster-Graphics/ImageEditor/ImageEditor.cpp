@@ -6,9 +6,11 @@ void ImageEditor::runImageEditor()
 
 	std::cout << "> ";
 
+	CommandFactory* commandFactory = nullptr;
+
 	while (std::cin.getline(command, MAX_COMMAND_LENGTH + 1, NEWLINE_SEPARATOR))
 	{
-			std::stringstream ss(command);
+		std::stringstream ss(command);
 
 		char buffer[MAX_COMMAND_LENGTH + 1]{ };
 		ss.getline(buffer, MAX_COMMAND_LENGTH + 1, SPACE_SEPARATOR);
@@ -29,15 +31,21 @@ void ImageEditor::runImageEditor()
 		}
 		else if (strcmp(buffer, "grayscale") == 0)
 		{
-			sessionManager.addCommandCurrentSession(FactoryOfFactories::factoryOfFactories("grayscale")->createCommand());
+			commandFactory = FactoryOfFactories::factoryOfFactories("grayscale");
+			sessionManager.addCommandCurrentSession(commandFactory->createCommand());
+			delete commandFactory;
 		}
 		else if (strcmp(buffer, "monochrome") == 0)
 		{
-			sessionManager.addCommandCurrentSession(FactoryOfFactories::factoryOfFactories("monochrome")->createCommand());
+			commandFactory = FactoryOfFactories::factoryOfFactories("monochrome");
+			sessionManager.addCommandCurrentSession(commandFactory->createCommand());
+			delete commandFactory;
 		}
 		else if (strcmp(buffer, "negative") == 0)
 		{
-			sessionManager.addCommandCurrentSession(FactoryOfFactories::factoryOfFactories("negative")->createCommand());
+			commandFactory = FactoryOfFactories::factoryOfFactories("negative");
+			sessionManager.addCommandCurrentSession(commandFactory->createCommand());
+			delete commandFactory;
 		}
 		else if (strcmp(buffer, "rotate") == 0)
 		{
@@ -45,11 +53,15 @@ void ImageEditor::runImageEditor()
 
 			if (strcmp(buffer, "left") == 0)
 			{
-				sessionManager.addCommandCurrentSession(FactoryOfFactories::factoryOfFactories("rotate left")->createCommand());
+				commandFactory = FactoryOfFactories::factoryOfFactories("rotate left");
+				sessionManager.addCommandCurrentSession(commandFactory->createCommand());
+				delete commandFactory;
 			}
 			else if (strcmp(buffer, "right") == 0)
 			{
-				sessionManager.addCommandCurrentSession(FactoryOfFactories::factoryOfFactories("rotate right")->createCommand());
+				commandFactory = FactoryOfFactories::factoryOfFactories("rotate right");
+				sessionManager.addCommandCurrentSession(commandFactory->createCommand());
+				delete commandFactory;
 			}
 		}
 		else if (strcmp(buffer, "undo") == 0)
