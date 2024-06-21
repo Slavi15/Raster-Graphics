@@ -42,7 +42,7 @@ void PPM3Image::saveAs(const String& fileName) const
 
 	ofs << "P3" << std::endl;
 	ofs << this->width << " " << this->height << std::endl;
-	ofs << this->maxNumber;
+	ofs << this->maxNumber << std::endl;
 
 	for (size_t i = 0; i < imageData.getSize(); i++)
 	{

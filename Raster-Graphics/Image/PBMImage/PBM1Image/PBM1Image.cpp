@@ -45,7 +45,7 @@ void PBM1Image::saveAs(const String& fileName) const
 		throw std::runtime_error("PBM1 Image: Could not open file!");
 
 	ofs << "P1" << std::endl;
-	ofs << this->width << " " << this->height;
+	ofs << this->width << " " << this->height << std::endl;
 
 	size_t num = 0;
 	for (size_t i = 0; i < getHeight(); i++)

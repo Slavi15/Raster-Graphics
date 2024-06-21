@@ -4,7 +4,7 @@ PGMImage::PGMImage(const String& fileName) : IMonochrome(fileName), Image(fileNa
 
 void PGMImage::applyMonochrome()
 {
-	if (isMonochrome())
+	if (getMonochromeFlag() || isMonochrome())
 		throw std::logic_error("PGMImage: Image is already monochrome!");
 
 	for (size_t i = 0; i < this->imageData.getSize(); i++)

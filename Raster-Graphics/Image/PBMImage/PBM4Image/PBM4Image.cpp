@@ -36,7 +36,7 @@ void PBM4Image::saveAs(const String& fileName) const
 		throw std::runtime_error("PBM4 Image: Could not open file!");
 
 	ofs << "P4" << std::endl;
-	ofs << this->width << " " << this->height;
+	ofs << this->width << " " << this->height << std::endl;
 
 	this->imageData.writeBinaryRaw(ofs);
 

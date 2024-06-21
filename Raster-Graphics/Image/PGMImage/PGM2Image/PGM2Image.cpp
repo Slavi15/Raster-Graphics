@@ -42,7 +42,7 @@ void PGM2Image::saveAs(const String& fileName) const
 
 	ofs << "P2" << std::endl;
 	ofs << this->width << " " << this->height << std::endl;
-	ofs << this->maxNumber;
+	ofs << this->maxNumber << std::endl;
 
 	size_t vectorIndex = 0;
 	for (size_t i = 0; i < getHeight(); i++)
