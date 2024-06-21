@@ -12,6 +12,7 @@ void MonochromeCommand::execute(Image* image)
 
 	beforeState = image->createMemento();
 	dynamic_cast<IMonochrome*>(image)->applyMonochrome();
+	dynamic_cast<IMonochrome*>(image)->setMonochromeFlag(true);
 }
 
 void MonochromeCommand::undo(Image* image)
@@ -23,6 +24,7 @@ void MonochromeCommand::undo(Image* image)
 		return;
 
 	image->restore(beforeState);
+	dynamic_cast<IMonochrome*>(image)->setMonochromeFlag(false);
 }
 
 Command* MonochromeCommand::clone() const

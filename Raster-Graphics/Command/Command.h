@@ -9,7 +9,7 @@ private:
 
 public:
 	Command(const String& commandType);
-
+	
 	const String& getCommand() const;
 
 	virtual void execute(Image* image) = 0;

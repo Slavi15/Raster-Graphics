@@ -6,7 +6,7 @@ void NegativeCommand::execute(Image* image)
 {
 	if (!image)
 		throw std::runtime_error("Negative Command: NULLPTR!");
-
+	
 	image->applyNegative();
 }
 

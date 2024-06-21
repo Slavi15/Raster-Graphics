@@ -11,6 +11,7 @@ void GrayScaleCommand::execute(Image* image)
 	{
 		this->beforeState = image->createMemento();
 		dynamic_cast<IGrayScale*>(image)->applyGrayscale();
+		dynamic_cast<IGrayScale*>(image)->setGrayScaleFlag(true);
 	}
 }
 
@@ -22,6 +23,7 @@ void GrayScaleCommand::undo(Image* image)
 	if (image->getMagicNumber() == PPM3_IMAGE_NUMBER || image->getMagicNumber() == PPM6_IMAGE_NUMBER)
 	{
 		image->restore(beforeState);
+		dynamic_cast<IGrayScale*>(image)->setGrayScaleFlag(false);
 	}
 }
 
