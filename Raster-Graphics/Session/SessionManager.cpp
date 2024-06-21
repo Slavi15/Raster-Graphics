@@ -24,10 +24,8 @@ void SessionManager::loadSession(const char* fileNames)
 	while (!ss.eof())
 	{
 		ss.getline(fileName, MAX_FILENAME_LENGTH + 1, SPACE_SEPARATOR);
-
 		Image* image = ImageFactory::imageFactory(fileName);
 		image->load();
-
 		this->sessions[currentSessionIndex]->addImage(image);
 	}
 }

@@ -81,7 +81,13 @@ void Session::undo()
 
 	for (size_t i = 0; i < this->images.getSize(); i++)
 	{
-		this->commands[this->commands.getSize() - 1]->undo(this->images[i].get());
+		try
+		{
+			this->commands[this->commands.getSize() - 1]->undo(this->images[i].get());
+		}
+		catch (const std::logic_error&) { continue; }
+		catch (const std::invalid_argument&) { continue; }
+		catch (const std::runtime_error&) { continue; }
 	}
 
 	this->commands.pop_back();
@@ -124,13 +130,16 @@ void Session::save()
 	{
 		this->images[i]->save();
 	}
+
+	std::cout << "Saved images successfully!" << std::endl;
 }
 
 void Session::saveAs(const String& fileName)
 {
 	executeAll();
-
 	this->images[0]->saveAs(fileName);
+
+	std::cout << "Saved image successfully!" << std::endl;
 }
 
 Session* Session::clone() const

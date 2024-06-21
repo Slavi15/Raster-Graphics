@@ -110,6 +110,10 @@ void ImageEditor::runImageEditor()
 		{
 			return;
 		}
+		else
+		{
+			std::cout << "Invalid command! Please, try again!" << std::endl;
+		}
 
 		std::cout << "> ";
 	}
