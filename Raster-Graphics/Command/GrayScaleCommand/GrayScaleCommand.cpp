@@ -1,6 +1,6 @@
 #include "GrayScaleCommand.h"
 
-GrayScaleCommand::GrayScaleCommand() : Command("grayscale") {}
+GrayScaleCommand::GrayScaleCommand() : Command(CommandType::GRAYSCALE) {}
 
 void GrayScaleCommand::execute(Image* image)
 {

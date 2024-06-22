@@ -2,15 +2,25 @@
 
 #include "../Image/Image.h"
 
+enum class CommandType : char
+{
+	NONE,
+	GRAYSCALE,
+	MONOCHROME,
+	NEGATIVE,
+	ROTATE_LEFT,
+	ROTATE_RIGHT
+};
+
 class Command
 {
 private:
-	String commandType;
+	CommandType commandType = CommandType::NONE;
 
 public:
-	Command(const String& commandType);
+	Command(CommandType commandType);
 	
-	const String& getCommand() const;
+	String getCommand() const;
 
 	virtual void execute(Image* image) = 0;
 	virtual void undo(Image* image) = 0;

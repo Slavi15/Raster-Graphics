@@ -1,6 +1,6 @@
 #include "NegativeCommand.h"
 
-NegativeCommand::NegativeCommand() : Command("negative") {}
+NegativeCommand::NegativeCommand() : Command(CommandType::NEGATIVE) {}
 
 void NegativeCommand::execute(Image* image)
 {

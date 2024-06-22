@@ -1,8 +1,28 @@
 #include "Command.h"
 
-Command::Command(const String& commandType) : commandType(commandType) {}
+Command::Command(CommandType commandType) : commandType(commandType) {}
 
-const String& Command::getCommand() const
+String Command::getCommand() const
 {
-	return this->commandType;
+	switch (this->commandType)
+	{
+	case CommandType::GRAYSCALE:
+		return String("grayscale");
+		break;
+	case CommandType::MONOCHROME:
+		return String("monochrome");
+		break;
+	case CommandType::NEGATIVE:
+		return String("negative");
+		break;
+	case CommandType::ROTATE_LEFT:
+		return String("rotate left");
+		break;
+	case CommandType::ROTATE_RIGHT:
+		return String("rotate right");
+		break;
+	default:
+		return String("none");
+		break;
+	}
 }

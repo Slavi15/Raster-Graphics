@@ -1,6 +1,6 @@
 #include "RotateRightCommand.h"
 
-RotateRightCommand::RotateRightCommand() : Command("rotate right") {}
+RotateRightCommand::RotateRightCommand() : Command(CommandType::ROTATE_RIGHT) {}
 
 void RotateRightCommand::execute(Image* image)
 {

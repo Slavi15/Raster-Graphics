@@ -1,6 +1,6 @@
 #include "MonochromeCommand.h"
 
-MonochromeCommand::MonochromeCommand() : Command("monochrome") {}
+MonochromeCommand::MonochromeCommand() : Command(CommandType::MONOCHROME) {}
 
 void MonochromeCommand::execute(Image* image)
 {
