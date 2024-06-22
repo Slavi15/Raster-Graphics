@@ -4,7 +4,7 @@ PPMImage::PPMImage(const String& fileName) : IGrayScale(fileName), IMonochrome(f
 
 void PPMImage::applyGrayscale()
 {
-	if (getGrayScaleFlag() || isGrayScale())
+	if (getGrayScaleFlag() || getMonochromeFlag() || isGrayScale())
 		throw std::logic_error("PPM6 Image: Image is already grayscale!");
 
 	for (size_t i = 0; i < this->imageData.getSize(); i++)

@@ -37,7 +37,7 @@ void PGM5Image::saveAs(const String& fileName) const
 
 	ofs << "P5" << std::endl;
 	ofs << this->width << " " << this->height << std::endl;
-	ofs << this->maxNumber << std::endl;
+	ofs << this->maxNumber;
 
 	ofs.write(reinterpret_cast<const char*>(&this->imageData[0]), this->imageData.getSize() * sizeof(uint8_t));
 
