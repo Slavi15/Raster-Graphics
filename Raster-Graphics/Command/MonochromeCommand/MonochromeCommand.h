@@ -7,6 +7,7 @@ class MonochromeCommand : public Command
 {
 private:
 	Memento beforeState;
+	bool previousMonochromeFlag = false;
 
 public:
 	MonochromeCommand();

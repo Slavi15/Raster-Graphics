@@ -10,8 +10,12 @@ void GrayScaleCommand::execute(Image* image)
 	if (image->getMagicNumber() == PPM3_IMAGE_NUMBER || image->getMagicNumber() == PPM6_IMAGE_NUMBER)
 	{
 		this->beforeState = image->createMemento();
-		dynamic_cast<IGrayScale*>(image)->applyGrayscale();
-		dynamic_cast<IGrayScale*>(image)->setGrayScaleFlag(true);
+
+		IGrayScale* grayscaleImage = dynamic_cast<IGrayScale*>(image);
+
+		this->previousGrayScaleFlag = grayscaleImage->getGrayScaleFlag();
+		grayscaleImage->applyGrayscale();
+		grayscaleImage->setGrayScaleFlag(true);
 	}
 }
 
@@ -23,7 +27,7 @@ void GrayScaleCommand::undo(Image* image)
 	if (image->getMagicNumber() == PPM3_IMAGE_NUMBER || image->getMagicNumber() == PPM6_IMAGE_NUMBER)
 	{
 		image->restore(beforeState);
-		dynamic_cast<IGrayScale*>(image)->setGrayScaleFlag(false);
+		dynamic_cast<IGrayScale*>(image)->setGrayScaleFlag(previousGrayScaleFlag);
 	}
 }
 

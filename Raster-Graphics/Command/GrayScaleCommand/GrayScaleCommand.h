@@ -7,6 +7,7 @@ class GrayScaleCommand : public Command
 {
 private:
 	Memento beforeState;
+	bool previousGrayScaleFlag = false;
 
 public:
 	GrayScaleCommand();
