@@ -31,19 +31,19 @@ void ImageEditor::runImageEditor()
 		}
 		else if (strcmp(buffer, "grayscale") == 0)
 		{
-			commandFactory = FactoryOfFactories::factoryOfFactories("grayscale");
+			commandFactory = FactoryOfFactories::factoryOfFactories(CommandType::GRAYSCALE);
 			sessionManager.addCommandCurrentSession(commandFactory->createCommand());
 			delete commandFactory;
 		}
 		else if (strcmp(buffer, "monochrome") == 0)
 		{
-			commandFactory = FactoryOfFactories::factoryOfFactories("monochrome");
+			commandFactory = FactoryOfFactories::factoryOfFactories(CommandType::MONOCHROME);
 			sessionManager.addCommandCurrentSession(commandFactory->createCommand());
 			delete commandFactory;
 		}
 		else if (strcmp(buffer, "negative") == 0)
 		{
-			commandFactory = FactoryOfFactories::factoryOfFactories("negative");
+			commandFactory = FactoryOfFactories::factoryOfFactories(CommandType::NEGATIVE);
 			sessionManager.addCommandCurrentSession(commandFactory->createCommand());
 			delete commandFactory;
 		}
@@ -53,13 +53,13 @@ void ImageEditor::runImageEditor()
 
 			if (strcmp(buffer, "left") == 0)
 			{
-				commandFactory = FactoryOfFactories::factoryOfFactories("rotate left");
+				commandFactory = FactoryOfFactories::factoryOfFactories(CommandType::ROTATE_LEFT);
 				sessionManager.addCommandCurrentSession(commandFactory->createCommand());
 				delete commandFactory;
 			}
 			else if (strcmp(buffer, "right") == 0)
 			{
-				commandFactory = FactoryOfFactories::factoryOfFactories("rotate right");
+				commandFactory = FactoryOfFactories::factoryOfFactories(CommandType::ROTATE_RIGHT);
 				sessionManager.addCommandCurrentSession(commandFactory->createCommand());
 				delete commandFactory;
 			}

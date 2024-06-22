@@ -1,24 +1,24 @@
 #include "FactoryOfFactories.h"
 
-CommandFactory* FactoryOfFactories::factoryOfFactories(const String& command)
+CommandFactory* FactoryOfFactories::factoryOfFactories(CommandType commandType)
 {
-    if (command == "grayscale")
+    if (commandType == CommandType::GRAYSCALE)
     {
         return new GrayScaleFactory();
     }
-    else if (command == "monochrome")
+    else if (commandType == CommandType::MONOCHROME)
     {
         return new MonochromeFactory();
     }
-    else if (command == "negative")
+    else if (commandType == CommandType::NEGATIVE)
     {
         return new NegativeFactory();
     }
-    else if (command == "rotate left")
+    else if (commandType == CommandType::ROTATE_LEFT)
     {
         return new RotateLeftFactory();
     }
-    else if (command == "rotate right")
+    else if (commandType == CommandType::ROTATE_RIGHT)
     {
         return new RotateRightFactory();
     }

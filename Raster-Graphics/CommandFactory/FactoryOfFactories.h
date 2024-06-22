@@ -11,5 +11,5 @@
 class FactoryOfFactories
 {
 public:
-	static CommandFactory* factoryOfFactories(const String& command);
+	static CommandFactory* factoryOfFactories(CommandType commandType);
 };
