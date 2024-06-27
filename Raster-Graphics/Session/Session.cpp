@@ -46,8 +46,7 @@ void Session::removeImage()
 
 void Session::execute()
 {
-	if (this->commands.isEmpty())
-		return;
+	if (this->commands.isEmpty()) return;
 
 	for (size_t i = 0; i < this->images.getSize(); i++)
 	{
@@ -76,8 +75,7 @@ void Session::executeAll()
 
 void Session::undo()
 {
-	if (this->commands.isEmpty())
-		throw std::runtime_error("Session: No commands are available in history!");
+	if (this->commands.isEmpty()) return;
 
 	for (size_t i = 0; i < this->images.getSize(); i++)
 	{
