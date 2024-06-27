@@ -117,7 +117,10 @@ String String::substr(size_t begin, size_t howMany) const
 String operator+(const String& lhs, const String& rhs)
 {
 	String toReturn(lhs.getSize() + rhs.getSize());
+
+	toReturn += lhs;
 	toReturn += rhs;
+	
 	return toReturn;
 }
 
