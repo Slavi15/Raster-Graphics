@@ -14,6 +14,11 @@
 
 class ImageFactory
 {
+private:
+	static Image* PBMImageFactory(const char* fileName, uint8_t magicNumber);
+	static Image* PGMImageFactory(const char* fileName, uint8_t magicNumber);
+	static Image* PPMImageFactory(const char* fileName, uint8_t magicNumber);
+
 public:
 	static Image* imageFactory(const char* fileName); // for adding to container valid image files
 	static Image* imageFactory(const char* fileName, uint8_t magicNumber); // for collage Image creation
